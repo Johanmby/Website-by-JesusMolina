@@ -12,6 +12,7 @@ export default function Hero() {
 
   const statLabels = [t.heroStat1Label, t.heroStat2Label, t.heroStat3Label];
 
+  //xddddddd
   return (
     <section className="hero" id="inicio">
       <canvas className="piano-canvas-bg" id="pianoCanvasBg" ref={canvasRef} aria-hidden="true"></canvas>
