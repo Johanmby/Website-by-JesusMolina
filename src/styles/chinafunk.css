@@ -1,0 +1,56 @@
+/* ============ CHINAFUNK VIDEO ============ */
+.chinafunk {
+  background: var(--marfil);
+  color: var(--ebano);
+  padding: 160px 48px;
+  position: relative;
+}
+
+.chinafunk-container {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 60px;
+}
+
+.chinafunk-text {
+  max-width: 600px;
+}
+
+.chinafunk-text .section-eyebrow {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.chinafunk-sub {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--niebla);
+  margin-top: 24px;
+}
+
+.chinafunk-video-wrapper {
+  width: 100%;
+  max-width: 900px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 40px 80px -20px rgba(0,0,0,0.3);
+  background: var(--ebano);
+  border: 1px solid var(--linea);
+}
+
+.chinafunk-video {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 640px) {
+  .chinafunk {
+    padding: 100px 24px;
+  }
+}

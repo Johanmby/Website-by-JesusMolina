@@ -1,0 +1,18 @@
+/* ============ SCROLL PROGRESS ============ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 999;
+  background: transparent;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--bronce);
+  transition: width .1s linear;
+}
+

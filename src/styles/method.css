@@ -1,0 +1,785 @@
+/* ============ METHOD (dark) ============ */
+.method {
+  background: var(--ebano);
+  color: var(--marfil);
+  padding: 160px 48px 160px;
+  position: relative;
+  scroll-margin-top: 100px;
+}
+
+.method-header {
+  max-width: 760px;
+  margin: 0 auto 70px;
+  text-align: center;
+}
+
+.method-header .section-eyebrow {
+  display: flex;
+  justify-content: center;
+}
+
+.method-sub {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--niebla-claro);
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* ===== APP BENTO GRID ===== */
+.bento {
+  max-width: var(--container);
+  margin: 0 auto 90px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto;
+  gap: 20px;
+}
+
+.bento-cell {
+  background: var(--ebano-soft);
+  color: var(--marfil);
+  border: 1px solid var(--linea-clara);
+  border-radius: var(--radius-md);
+  padding: 28px 26px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s;
+}
+
+.bento-cell:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 40px -18px rgba(0, 0, 0, .5);
+  border-color: var(--bronce);
+}
+
+.bento-cell h4 {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--marfil);
+}
+
+.bento-cell p {
+  font-size: 13.5px;
+  color: var(--niebla-claro);
+  line-height: 1.5;
+}
+
+.bento-eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--bronce);
+  margin-bottom: 14px;
+}
+
+.bento-beginner {
+  grid-column: 1 / 3;
+  grid-row: 1;
+}
+
+.bento-community {
+  grid-column: 3 / 4;
+  grid-row: 1;
+  text-align: center;
+}
+
+.bento-app {
+  grid-column: 4 / 5;
+  grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-topics {
+  grid-column: 1 / 4;
+  grid-row: 2;
+}
+
+.bento-progress-mini {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.bento-progress-step {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--ebano);
+  border: 1px solid var(--linea-clara);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--marfil);
+}
+
+.bento-progress-step-active {
+  background: var(--bronce);
+  color: var(--ebano);
+  border-color: var(--bronce);
+}
+
+.bento-progress-check {
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.bento-community-avatars {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.bento-community-avatars img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--ebano-soft);
+  margin-left: -12px;
+}
+
+.bento-community-avatars img:first-child {
+  margin-left: 0;
+}
+
+.bento-community-plus {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin-left: -12px;
+  background: var(--bronce);
+  color: var(--ebano);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  border: 2px solid var(--ebano-soft);
+}
+
+/* representative phone mockup inside the bento "App de práctica" cell */
+.bento-phone-mini {
+  margin-top: 18px;
+  flex: 1;
+  background: linear-gradient(180deg, #1b191c 0%, var(--ebano) 100%);
+  border: 1px solid var(--linea-clara);
+  border-radius: 20px;
+  padding: 12px 12px 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+}
+
+.bento-phone-mini-notch {
+  width: 34px;
+  height: 5px;
+  border-radius: 4px;
+  background: var(--niebla);
+  margin: 0 auto 14px;
+  opacity: .4;
+}
+
+.bento-phone-mini-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--niebla-claro);
+  margin-bottom: 14px;
+  padding: 0 2px;
+}
+
+.bento-phone-mini-screen {
+  background: rgba(247, 241, 230, .04);
+  border-radius: 12px;
+  padding: 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bento-phone-mini-track {
+  font-size: 11px;
+  color: var(--marfil);
+  font-weight: 600;
+}
+
+.bento-phone-mini-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 32px;
+}
+
+.bento-phone-mini-bars span {
+  flex: 1;
+  background: var(--bronce);
+  opacity: .55;
+  border-radius: 2px 2px 0 0;
+}
+
+.bento-phone-mini-icons {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+  margin-top: auto;
+}
+
+.bento-phone-mini-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+}
+
+.bento-phone-mini-progress {
+  height: 4px;
+  border-radius: 3px;
+  background: var(--linea-clara);
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.bento-phone-mini-progress span {
+  display: block;
+  height: 100%;
+  width: 68%;
+  background: var(--bronce);
+  border-radius: 3px;
+}
+
+.bento-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.bento-tag {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  border: 1px solid var(--linea-clara);
+  border-radius: 100px;
+  padding: 8px 16px;
+  color: var(--marfil-osc);
+  opacity: .85;
+  transition: background .25s, color .25s, opacity .25s, border-color .25s;
+}
+
+.bento-tag:hover {
+  background: var(--bronce);
+  color: var(--ebano);
+  opacity: 1;
+  border-color: var(--bronce);
+}
+
+@media (max-width:980px) {
+  .bento {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .bento-beginner {
+    grid-column: 1 / 3;
+    grid-row: auto;
+  }
+
+  .bento-community {
+    grid-column: 1 / 2;
+    grid-row: auto;
+  }
+
+  .bento-app {
+    grid-column: 2 / 3;
+    grid-row: span 2;
+  }
+
+  .bento-topics {
+    grid-column: 1 / 3;
+    grid-row: auto;
+  }
+}
+
+@media (max-width:640px) {
+  .method {
+    padding: 100px 24px 120px;
+  }
+
+  .bento {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .bento-beginner,
+  .bento-community,
+  .bento-app,
+  .bento-topics {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
+
+
+/* showcase / phone mockup */
+.method-showcase {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr .85fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.method-showcase-text h3 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  max-width: 460px;
+}
+
+.method-showcase-text p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--niebla-claro);
+  margin-bottom: 28px;
+  max-width: 460px;
+}
+
+.method-showcase-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.method-showcase-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14.5px;
+  color: var(--marfil-osc);
+}
+
+.method-showcase-list svg {
+  color: var(--bronce);
+  flex-shrink: 0;
+}
+
+/* ===== DEVICE COMPOSITE (laptop + phone overlay) ===== */
+.method-showcase-visual {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.phone-glow {
+  position: absolute;
+  width: 560px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(201, 162, 39, .12), transparent 70%);
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── Realistic Laptop ── */
+.laptop-mock {
+  position: relative;
+  z-index: 1;
+  width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,.7));
+}
+
+/* Lid (screen portion) */
+.laptop-lid {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Camera dot at top of bezel */
+.laptop-camera {
+  width: 100%;
+  height: 12px;
+  background: linear-gradient(180deg, #1e1c20 0%, #17151a 100%);
+  border-radius: 10px 10px 0 0;
+  border: 1.5px solid rgba(255,255,255,.07);
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.laptop-camera::after {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #2a2830 30%, #1a181c 70%);
+  box-shadow: inset 0 0 1px rgba(255,255,255,.12);
+}
+
+/* Screen area */
+.laptop-screen {
+  width: 100%;
+  aspect-ratio: 16/10;
+  background: #0a090c;
+  border: 1.5px solid rgba(255,255,255,.07);
+  border-top: none;
+  border-bottom: none;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Screen reflection overlay */
+.laptop-screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 42%, rgba(255,255,255,.025) 46%, rgba(255,255,255,.04) 50%, transparent 54%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Screen image */
+.laptop-screen-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Bottom bezel of screen */
+.laptop-screen-bezel {
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(180deg, #15131a 0%, #1c1a20 100%);
+  border: 1.5px solid rgba(255,255,255,.07);
+  border-top: none;
+  border-radius: 0 0 2px 2px;
+}
+
+/* Hinge connecting lid to keyboard */
+.laptop-hinge {
+  width: 102%;
+  height: 7px;
+  background: linear-gradient(180deg, #0d0c0f 0%, #22202a 40%, #2c2a30 55%, #1e1c20 75%, #151317 100%);
+  border-radius: 0 0 3px 3px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,.6);
+}
+
+.laptop-hinge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255,255,255,.05);
+}
+
+/* Keyboard body */
+.laptop-keyboard-body {
+  width: 110%;
+  background: linear-gradient(180deg, #1e1c22 0%, #18161c 30%, #141218 100%);
+  border-radius: 0 0 8px 8px;
+  padding: 12px 14px 8px;
+  border: 1.5px solid rgba(255,255,255,.06);
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+}
+
+/* Keyboard rows */
+.laptop-key-row {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+}
+
+.laptop-key {
+  height: 12px;
+  flex: 1;
+  max-width: 24px;
+  background: linear-gradient(180deg, #28262c 0%, #1c1a20 100%);
+  border-radius: 2.5px;
+  border: 0.5px solid rgba(255,255,255,.05);
+  box-shadow: 0 1px 1px rgba(0,0,0,.4);
+}
+
+/* Space bar */
+.laptop-key-space {
+  flex: 5;
+  max-width: 150px;
+}
+
+/* Small fn keys */
+.laptop-key-sm {
+  max-width: 16px;
+  height: 10px;
+}
+
+/* Trackpad */
+.laptop-trackpad {
+  width: 100px;
+  height: 60px;
+  margin: 6px auto 2px;
+  background: linear-gradient(180deg, #1c1a20 0%, #18161c 100%);
+  border-radius: 7px;
+  border: 1px solid rgba(255,255,255,.05);
+  box-shadow: inset 0 0 10px rgba(0,0,0,.3);
+}
+
+/* Rubber feet strip */
+.laptop-feet {
+  width: 106%;
+  height: 3px;
+  background: linear-gradient(180deg, #111, #0a0a0a);
+  border-radius: 0 0 8px 8px;
+  margin-top: -1px;
+}
+
+/* ── Realistic Phone ── */
+.device-phone-overlay {
+  position: absolute;
+  z-index: 3;
+  right: -10px;
+  bottom: 16px;
+  width: 160px;
+  height: 310px;
+  background: linear-gradient(150deg, #1c1a20 0%, #0e0d12 100%);
+  border-radius: 28px;
+  padding: 5px;
+  box-shadow:
+    0 30px 70px -10px rgba(0,0,0,.85),
+    0 10px 25px -5px rgba(0,0,0,.6),
+    inset 0 0.5px 0 rgba(255,255,255,.1),
+    inset 0 -0.5px 0 rgba(0,0,0,.3);
+  border: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Side buttons */
+.device-phone-overlay::before {
+  content: '';
+  position: absolute;
+  right: -2.5px;
+  top: 80px;
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
+  border-radius: 0 2px 2px 0;
+}
+
+.device-phone-overlay::after {
+  content: '';
+  position: absolute;
+  left: -2.5px;
+  top: 60px;
+  width: 2px;
+  height: 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+  border-radius: 2px 0 0 2px;
+  box-shadow: 0 28px 0 rgba(255,255,255,.05), 0 56px 0 rgba(255,255,255,.05);
+}
+
+/* Dynamic Island */
+.device-phone-notch {
+  width: 48px;
+  height: 12px;
+  background: #000;
+  border-radius: 8px;
+  margin: 6px auto 0;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.04);
+  flex-shrink: 0;
+}
+
+/* Front camera dot */
+.device-phone-notch::after {
+  content: '';
+  position: absolute;
+  right: 9px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1c2230 30%, #0c1018 70%);
+  box-shadow: inset 0 0 1px rgba(80,130,200,.25);
+}
+
+/* Phone screen */
+.device-phone-screen {
+  flex: 1;
+  background: #000;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  margin-top: -6px;
+}
+
+/* Screen reflection */
+.device-phone-screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(130deg, transparent 48%, rgba(255,255,255,.02) 52%, transparent 56%);
+  pointer-events: none;
+  z-index: 10;
+  border-radius: 24px;
+}
+
+/* Phone screen image */
+.device-phone-screen-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 24px;
+}
+
+/* Home indicator bar */
+.device-phone-home-bar {
+  width: 40px;
+  height: 3px;
+  background: rgba(247, 241, 230, .3);
+  border-radius: 3px;
+  margin: 4px auto 4px;
+  flex-shrink: 0;
+}
+
+
+@media (max-width:980px) {
+  .method-showcase {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    text-align: center;
+  }
+
+  .method-showcase-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .method-showcase-list {
+    align-items: flex-start;
+  }
+
+  .laptop-mock {
+    width: 400px;
+  }
+
+  .laptop-keyboard-body {
+    padding: 10px 12px 6px;
+  }
+
+  .laptop-key {
+    height: 10px;
+  }
+
+  .laptop-key-sm {
+    height: 8px;
+  }
+
+  .laptop-trackpad {
+    width: 80px;
+    height: 48px;
+  }
+
+  .device-phone-overlay {
+    right: -8px;
+    width: 130px;
+    height: 252px;
+    border-radius: 22px;
+  }
+
+  .device-phone-screen {
+    border-radius: 18px;
+  }
+
+  .device-phone-screen-img {
+    border-radius: 18px;
+  }
+}
+
+@media (max-width:640px) {
+  .method {
+    padding: 100px 24px 120px;
+  }
+
+  .laptop-mock {
+    width: 300px;
+  }
+
+  .laptop-keyboard-body {
+    padding: 8px 10px 5px;
+    gap: 3px;
+  }
+
+  .laptop-key {
+    height: 8px;
+  }
+
+  .laptop-key-sm {
+    height: 7px;
+    max-width: 12px;
+  }
+
+  .laptop-trackpad {
+    width: 60px;
+    height: 36px;
+  }
+
+  .device-phone-overlay {
+    width: 100px;
+    height: 195px;
+    right: -4px;
+    bottom: 14px;
+    border-radius: 18px;
+  }
+
+  .device-phone-screen {
+    border-radius: 14px;
+  }
+
+  .device-phone-screen-img {
+    border-radius: 14px;
+  }
+
+  .device-phone-notch {
+    width: 36px;
+    height: 9px;
+  }
+}
+

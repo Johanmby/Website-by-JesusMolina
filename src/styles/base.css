@@ -1,0 +1,118 @@
+/* ===================================================================
+   JESÚS MOLINA — PIANO
+   Token system:
+   Color   — Ébano #0E0D0F, Marfil #F7F1E6, Marfil-osc #ECE3D2,
+             Bronce #C9A227, Vino #5C1A28, Niebla #8B8378
+   Type    — Display: Fraunces (serif editorial, óptica variable)
+             Body/UI: Inter
+             Mono/data: JetBrains Mono (cifras, etiquetas técnicas)
+   Layout  — Scroll storytelling por secciones de ancho completo,
+             alternando fondo marfil / ébano, como un programa de
+             concierto con movimientos.
+   Signature — Teclado de piano interactivo en el hero que responde
+             al cursor/touch, y un pentagrama de líneas finas que
+             atraviesa hero y CTA final como hilo conductor.
+   =================================================================== */
+
+:root {
+  --ebano: #0E0D0F;
+  --ebano-soft: #19171A;
+  --marfil: #F7F1E6;
+  --marfil-osc: #ECE3D2;
+  --bronce: #C9A227;
+  --bronce-soft: #E3C765;
+  --vino: #5C1A28;
+  --niebla: #8B8378;
+  --niebla-claro: #B7AEA0;
+  --linea: rgba(14, 13, 15, 0.12);
+  --linea-clara: rgba(247, 241, 230, 0.14);
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --container: 1240px;
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+
+  --ease: cubic-bezier(.16, .84, .32, 1);
+  --ease-soft: cubic-bezier(.22, .61, .36, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: var(--marfil);
+  color: var(--ebano);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: none;
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: var(--bronce);
+  color: var(--ebano);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* hide custom cursor on touch devices */
+@media (hover:none),
+(pointer:coarse) {
+  body {
+    cursor: auto;
+  }
+
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+
+  a,
+  button {
+    cursor: pointer;
+  }
+}
+

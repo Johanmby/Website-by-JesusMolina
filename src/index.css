@@ -1,0 +1,21 @@
+/* Global styles, split from the original styles.css into one file per
+   section/component so nothing turns into a 3000+ line monolith again.
+   Import order matters a little for cascade parity with the original file. */
+
+@import './styles/base.css';
+@import './styles/grain.css';
+@import './styles/cursor.css';
+@import './styles/loader.css';
+@import './styles/scrollprogress.css';
+@import './styles/nav.css';
+@import './styles/hero.css';
+@import './styles/marquee.css';
+@import './styles/section-generics.css';
+@import './styles/about.css';
+@import './styles/method.css';
+@import './styles/courses.css';
+@import './styles/community.css';
+@import './styles/chinafunk.css';
+@import './styles/finalcta.css';
+@import './styles/footer.css';
+@import './styles/reveal.css';

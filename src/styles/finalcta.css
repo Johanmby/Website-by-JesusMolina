@@ -1,0 +1,101 @@
+/* ============ FINAL CTA (dark) ============ */
+.final-cta {
+  position: relative;
+  background: var(--ebano);
+  color: var(--marfil);
+  padding: 170px 48px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.final-cta-staff {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  opacity: .5;
+}
+
+.final-cta-staff svg {
+  width: 100%;
+  height: 100%;
+}
+
+.final-cta-staff line {
+  stroke: var(--niebla);
+  stroke-width: 1;
+  opacity: .25;
+}
+
+.final-cta-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.final-cta .section-eyebrow-light {
+  display: flex;
+  justify-content: center;
+}
+
+.final-cta-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(38px, 5.6vw, 64px);
+  line-height: 1.08;
+  margin-bottom: 26px;
+}
+
+.final-cta-sub {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--niebla-claro);
+  margin-bottom: 48px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.final-cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.final-cta .btn-primary {
+  background: var(--bronce);
+  color: var(--ebano);
+}
+
+.final-cta .btn-primary:hover {
+  background: var(--bronce-soft);
+  box-shadow: 0 16px 30px -10px rgba(201, 162, 39, .4);
+}
+
+.final-cta-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--marfil);
+  border-bottom: 1px solid rgba(247, 241, 230, .3);
+  padding-bottom: 4px;
+  transition: border-color .3s, color .3s;
+}
+
+.final-cta-whatsapp:hover {
+  border-color: var(--bronce);
+  color: var(--bronce-soft);
+}
+
+@media (max-width:640px) {
+  .final-cta {
+    padding: 120px 24px;
+  }
+}
+

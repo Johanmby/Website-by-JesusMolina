@@ -1,0 +1,37 @@
+/* ============ SECTION GENERICS ============ */
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--vino);
+  margin-bottom: 18px;
+}
+
+.section-eyebrow-light {
+  color: var(--bronce);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(34px, 4.6vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -.01em;
+  margin-bottom: 24px;
+}
+
+.section-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--vino);
+}
+
+.section-title-light {
+  color: var(--marfil);
+}
+
+.section-title-light em {
+  color: var(--bronce-soft);
+}
+
