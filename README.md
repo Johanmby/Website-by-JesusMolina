@@ -4,15 +4,24 @@ Migración del sitio original (`index.html` + `script.js` + `styles.css`) a una
 estructura de componentes en React, manteniendo el mismo diseño, clases CSS y
 comportamiento visual/interactivo.
 
-## Correr el proyecto
+## En caso de tener errores por dependencias
 
 ```bash
 npm install
+```
+
+## Correr el proyecto
+```bash
 npm run dev       # desarrollo, http://localhost:5173
-npm run build     # build de producción a /dist
 npm run preview   # sirve el build de producción
 ```
 
+## En caso de modificar el vite.js 
+```bash
+[1] Guardar los cambios en su IDE en caso de no tener el autosave
+[2] Ejecutar los comandos npm run build y npm run deploy en ese orden
+[3] Realizar commit 
+```
 ## Estructura
 
 ```
