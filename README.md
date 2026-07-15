@@ -37,4 +37,19 @@ src/
 ```
 
 ## Notas importantes 
+A la hora de subir un cambio, tener en cuenta lo siguiente y hacer los siguientes pasos:
 
+- A la hora de ver el proyecto se notara una carpeta llamada dist creada, bueno esta carpeta ¡NO SE TOCA!
+ya que aqui basicamente se almacena unos archivos que permiten que github interprete como pagina web el framework 
+y no haya ningun problema a la hora de ejecutarlo en nuestros navegadores
+
+Pasos para hacer un commit:
+-Revisar que tengas el autosave en tu IDE
+-npm run build 
+-npm run deploy
+-Git init
+-Git add .
+-Git commit -m "" -a
+-Git push
+
+listo, subiste cambios con exitos!
