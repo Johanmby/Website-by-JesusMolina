@@ -17,7 +17,7 @@
 }
 
 .chinafunk-text {
-  max-width: 600px;
+  max-width: 700px;
 }
 
 .chinafunk-text .section-eyebrow {
@@ -33,24 +33,101 @@
   margin-top: 24px;
 }
 
-.chinafunk-video-wrapper {
+.featured-grid {
   width: 100%;
-  max-width: 900px;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: 0 40px 80px -20px rgba(0,0,0,0.3);
-  background: var(--ebano);
-  border: 1px solid var(--linea);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
 }
 
-.chinafunk-video {
+.featured-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.94), rgba(248,242,232,0.92));
+  border: 1px solid var(--linea);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 50px -20px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-card-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--ebano);
+}
+
+.featured-card-video {
   width: 100%;
+  height: 100%;
   display: block;
   object-fit: cover;
+  filter: saturate(0.95) contrast(1.05);
+}
+
+.featured-card-chip {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(17, 24, 39, 0.8);
+  color: var(--marfil);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.featured-card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  text-align: left;
+}
+
+.featured-card-content h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  margin: 0;
+}
+
+.featured-card-content p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--niebla);
+  margin: 0;
+}
+
+.featured-card-link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ebano);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.featured-card-link:hover {
+  color: var(--bronce);
+}
+
+@media (max-width: 960px) {
+  .featured-grid {
+    grid-template-columns: 1fr;
+    max-width: 640px;
+  }
 }
 
 @media (max-width: 640px) {
   .chinafunk {
     padding: 100px 24px;
+  }
+
+  .featured-card-content {
+    padding: 20px;
   }
 }

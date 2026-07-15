@@ -68,11 +68,6 @@ export default function Hero() {
 
       {/* ── Content ── */}
       <div className="hero-content">
-        <div className="hero-eyebrow" data-reveal>
-          <span className="dot-pulse"></span>
-          {t.heroEyebrow}
-        </div>
-
         <h1 className="hero-title">
           <span className="hero-title-line hero-title-firstname" data-reveal>{t.heroTitle1}</span>
           <span className="hero-title-line hero-title-lastname" data-reveal>{t.heroTitle2}</span>

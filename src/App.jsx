@@ -3,9 +3,9 @@ import Chrome from './components/Chrome';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
 import Marquee from './components/Marquee';
-import About from './components/About';
+import CoursesCarousel from './components/CoursesCarousel';
 import Method from './components/Method';
-import Community from './components/Community';
+import SpotifySection from './components/SpotifySection';
 import ChinafunkVideo from './components/ChinafunkVideo';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
@@ -25,9 +25,9 @@ export default function App() {
       <Nav />
       <Hero />
       <Marquee />
-      <About />
+      <CoursesCarousel />
       <Method />
-      <Community />
+      <SpotifySection />
       <ChinafunkVideo />
       <FinalCTA />
       <Footer />
