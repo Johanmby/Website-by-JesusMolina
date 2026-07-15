@@ -16,7 +16,6 @@ export const translations = {
     startNow: "Empezar ahora",
 
     /* ── HERO ── */
-    heroEyebrow: "Músico profesional · Multi-instrumentista",
     heroTitle1: "Jesús",
     heroTitle2: "Molina",
     heroTitle3: "Pianista · Compositor · Intérprete",
@@ -28,20 +27,10 @@ export const translations = {
     heroStat2Label: "países",
     heroStat3Label: "instrumentos",
 
-    /* ── ABOUT ── */
-    aboutEyebrow: "— Quién te va a enseñar",
-    aboutTitle: "El piano no se aprende|memorizando teoría.|Se aprende tocando.",
-    aboutP1: "Empecé a tocar a los 7 años en la sala de mi casa, en un piano vertical desafinado. Hoy he dado conciertos en 9 países y formado a cientos de estudiantes que llegaron sin saber leer una sola nota.",
-    aboutP2: "Mi método combina técnica clásica con repertorio que realmente quieres tocar: desde Chopin hasta tus canciones favoritas. Sin relleno, sin ejercicios eternos que no llevan a ningún lado.",
-    aboutBadge: "Concertista & docente",
-    aboutDebut: "Debut como concertista",
-    aboutCountries: "países con clases impartidas",
-    aboutTimeline: [
-      { year: 2010, text: "Primer concierto profesional, Conservatorio Nacional" },
-      { year: 2015, text: "Inicio de clases particulares y primeros métodos propios" },
-      { year: 2019, text: "Lanzamiento de cursos online — primeros 100 alumnos" },
-      { year: 2026, text: "+500 estudiantes activos en 9 países" },
-    ],
+    /* ── COURSES CAROUSEL ── */
+    coursesCarouselEyebrow: "— Cursos disponibles",
+    coursesCarouselTitle: "Aprende desde cualquier plataforma",
+    coursesCarouselSub: "Programas de piano de Jesús Molina publicados en las principales plataformas de aprendizaje del mundo. Aprende a tu propio ritmo con la metodología que ha transformado a cientos de alumnos.",
 
     /* ── METHOD ── */
     methodEyebrow: "— Cómo funciona",
@@ -89,21 +78,18 @@ export const translations = {
       { id: "mentoria-grupal", icon: "people", featured: false, ribbon: null, level: "Todos los niveles", title: "Mentoría Grupal en Vivo", desc: "Clases grupales semanales por nivel + comunidad privada para mostrar tus avances.", duration: "Continuo", mode: "Grupal", price: 25 },
     ],
 
-    /* ── COMMUNITY ── */
-    communityEyebrow: "— Comunidad",
-    communityTitle: "No tocas solo.|Tocas en comunidad.",
-    communitySub: "Más de 500 alumnos comparten avances, dudas y grabaciones en nuestro grupo privado. Cada semana hay sesión de preguntas en vivo.",
-    communityActiveStudents: "Alumnos activos",
-    communityCountries: "en 9 países",
-    testimonials: [
-      { pos: 1, size: "md", avatar: 12, quote: "\"En 3 meses ya toco el Nocturno completo.\"", name: "Camila R." },
-      { pos: 2, size: "md", avatar: 33, quote: "\"Cambió cómo escucho música.\"", name: "Andrés F." },
-      { pos: 3, size: "lg", avatar: 47, quote: "\"Profesor increíblemente didáctico.\"", name: "Marcela T." },
-      { pos: 4, size: "md", avatar: 5, quote: "\"Las correcciones son rápidas y claras.\"", name: "Diego S." },
-      { pos: 5, size: "lg", avatar: 65, quote: "\"Nunca me sentí empezando de cero.\"", name: "Valentina P." },
-      { pos: 6, size: "md", avatar: 21, quote: "\"Una paciencia que no había visto.\"", name: "Roberto M." },
-      { pos: 7, size: "md", avatar: 58, quote: "\"Toco en el recital del colegio.\"", name: "Sofía L." },
-    ],
+    /* ── SPOTIFY ── */
+    spotifyEyebrow: "— Spotify",
+    spotifyTitle: "Escucha a Jesús Molina",
+    spotifySub: "Conéctate con las interpretaciones más vibrantes. Escucha sus composiciones originales, jazz fusión y solos de piano en Spotify.",
+    spotifyMonthlyListeners: "Oyentes mensuales",
+    spotifyFollowBtn: "Seguir en Spotify",
+
+    /* ── FEATURED ── */
+    featuredEyebrow: "— Destacados",
+    featuredTitle: "Momentos que hablan con el piano",
+    featuredSub: "Una selección de piezas, performances y propuestas que muestran la versatilidad de Jesús Molina, desde la energía del escenario hasta la profundidad de la improvisación.",
+    featuredCta: "Reservar clase",
 
     /* ── PRICING ── */
     pricingEyebrow: "— Inversión",
@@ -132,9 +118,9 @@ export const translations = {
     /* ── FOOTER ── */
     footerNav: "Navegación",
     footerNavLinks: [
-      { href: "#sobre-mi", label: "Sobre mí" },
+      { href: "#cursos-disponibles", label: "Cursos" },
       { href: "#metodo", label: "Método" },
-      { href: "#cursos", label: "Cursos" },
+      { href: "#cursos", label: "Planes de Estudio" },
       { href: "#planes", label: "Planes" },
     ],
     footerCourses: "Cursos",
@@ -144,7 +130,16 @@ export const translations = {
       { href: "#cursos", label: "Improvisación & Jazz" },
       { href: "#cursos", label: "Mentoría Grupal" },
     ],
+    footerIntro: "Piano, composición y presencia escénica para quienes quieren aprender con profundidad y sentir la música de forma auténtica.",
     footerContact: "Contacto",
+    footerChannelWhatsapp: "WhatsApp",
+    footerChannelInstagram: "Instagram",
+    footerChannelYoutube: "YouTube",
+    footerChannelSpotify: "Spotify",
+    footerChannelAppleMusic: "Apple Music",
+    footerScheduleClass: "Agendar clase",
+    footerExploreCourses: "Explorar cursos",
+    footerListenSpotify: "Escuchar en Spotify",
     footerCopyright: "© 2026 Jesús Molina. Todos los derechos reservados.",
     footerTagline: "Hecho con cuidado, nota por nota.",
 
@@ -206,7 +201,6 @@ export const translations = {
     startNow: "Start now",
 
     /* ── HERO ── */
-    heroEyebrow: "Professional musician · Multi-instrumentalist",
     heroTitle1: "Jesús",
     heroTitle2: "Molina",
     heroTitle3: "Pianist · Composer · Performer",
@@ -218,20 +212,10 @@ export const translations = {
     heroStat2Label: "countries",
     heroStat3Label: "instruments",
 
-    /* ── ABOUT ── */
-    aboutEyebrow: "— Who will teach you",
-    aboutTitle: "Piano isn't learned|by memorizing theory.|It's learned by playing.",
-    aboutP1: "I started playing at age 7 in my living room, on an out-of-tune upright piano. Today I've performed in 9 countries and trained hundreds of students who arrived without knowing how to read a single note.",
-    aboutP2: "My method combines classical technique with repertoire you actually want to play: from Chopin to your favorite songs. No filler, no endless exercises that lead nowhere.",
-    aboutBadge: "Concert pianist & teacher",
-    aboutDebut: "Concert debut",
-    aboutCountries: "countries with classes taught",
-    aboutTimeline: [
-      { year: 2010, text: "First professional concert, National Conservatory" },
-      { year: 2015, text: "Start of private lessons and first own teaching methods" },
-      { year: 2019, text: "Launch of online courses — first 100 students" },
-      { year: 2026, text: "+500 active students in 9 countries" },
-    ],
+    /* ── COURSES CAROUSEL ── */
+    coursesCarouselEyebrow: "— Available courses",
+    coursesCarouselTitle: "Learn from any platform",
+    coursesCarouselSub: "Jesús Molina's piano programs published on the world's leading learning platforms. Learn at your own pace with a proven methodology.",
 
     /* ── METHOD ── */
     methodEyebrow: "— How it works",
@@ -279,21 +263,18 @@ export const translations = {
       { id: "mentoria-grupal", icon: "people", featured: false, ribbon: null, level: "All levels", title: "Live Group Mentoring", desc: "Weekly group classes by level + private community to showcase your progress.", duration: "Ongoing", mode: "Group", price: 25 },
     ],
 
-    /* ── COMMUNITY ── */
-    communityEyebrow: "— Community",
-    communityTitle: "You don't play alone.|You play in community.",
-    communitySub: "More than 500 students share progress, questions, and recordings in our private group. Every week there's a live Q&A session.",
-    communityActiveStudents: "Active students",
-    communityCountries: "in 9 countries",
-    testimonials: [
-      { pos: 1, size: "md", avatar: 12, quote: "\"In 3 months I already play the full Nocturne.\"", name: "Camila R." },
-      { pos: 2, size: "md", avatar: 33, quote: "\"It changed how I listen to music.\"", name: "Andrés F." },
-      { pos: 3, size: "lg", avatar: 47, quote: "\"Incredibly didactic teacher.\"", name: "Marcela T." },
-      { pos: 4, size: "md", avatar: 5, quote: "\"Corrections are fast and clear.\"", name: "Diego S." },
-      { pos: 5, size: "lg", avatar: 65, quote: "\"I never felt like I was starting from zero.\"", name: "Valentina P." },
-      { pos: 6, size: "md", avatar: 21, quote: "\"A patience I've never seen before.\"", name: "Roberto M." },
-      { pos: 7, size: "md", avatar: 58, quote: "\"I play at the school recital now.\"", name: "Sofía L." },
-    ],
+    /* ── SPOTIFY ── */
+    spotifyEyebrow: "— Spotify",
+    spotifyTitle: "Listen to Jesús Molina",
+    spotifySub: "Connect with the most vibrant piano performances. Listen to his original compositions, jazz fusion, and piano solos on Spotify.",
+    spotifyMonthlyListeners: "Monthly listeners",
+    spotifyFollowBtn: "Follow on Spotify",
+
+    /* ── FEATURED ── */
+    featuredEyebrow: "— Featured",
+    featuredTitle: "Moments that speak through the piano",
+    featuredSub: "A selection of pieces, performances, and ideas that show Jesús Molina's versatility, from stage energy to the depth of improvisation.",
+    featuredCta: "Book a class",
 
     /* ── PRICING ── */
     pricingEyebrow: "— Investment",
@@ -322,9 +303,9 @@ export const translations = {
     /* ── FOOTER ── */
     footerNav: "Navigation",
     footerNavLinks: [
-      { href: "#sobre-mi", label: "About me" },
+      { href: "#cursos-disponibles", label: "Courses" },
       { href: "#metodo", label: "Method" },
-      { href: "#cursos", label: "Courses" },
+      { href: "#cursos", label: "Syllabus" },
       { href: "#planes", label: "Plans" },
     ],
     footerCourses: "Courses",
@@ -334,7 +315,16 @@ export const translations = {
       { href: "#cursos", label: "Improvisation & Jazz" },
       { href: "#cursos", label: "Group Mentoring" },
     ],
+    footerIntro: "Piano, composition, and stage presence for those who want to learn with depth and feel music in an authentic way.",
     footerContact: "Contact",
+    footerChannelWhatsapp: "WhatsApp",
+    footerChannelInstagram: "Instagram",
+    footerChannelYoutube: "YouTube",
+    footerChannelSpotify: "Spotify",
+    footerChannelAppleMusic: "Apple Music",
+    footerScheduleClass: "Book a class",
+    footerExploreCourses: "Explore courses",
+    footerListenSpotify: "Listen on Spotify",
     footerCopyright: "© 2026 Jesús Molina. All rights reserved.",
     footerTagline: "Made with care, note by note.",
 
@@ -396,7 +386,6 @@ export const translations = {
     startNow: "Commencer",
 
     /* ── HERO ── */
-    heroEyebrow: "Musicien professionnel · Multi-instrumentiste",
     heroTitle1: "Jesús",
     heroTitle2: "Molina",
     heroTitle3: "Pianiste · Compositeur · Interprète",
@@ -408,20 +397,10 @@ export const translations = {
     heroStat2Label: "pays",
     heroStat3Label: "instruments",
 
-    /* ── ABOUT ── */
-    aboutEyebrow: "— Qui vous enseignera",
-    aboutTitle: "Le piano ne s'apprend pas|en mémorisant la théorie.|Il s'apprend en jouant.",
-    aboutP1: "J'ai commencé à jouer à 7 ans dans le salon de ma maison, sur un piano droit désaccordé. Aujourd'hui, j'ai donné des concerts dans 9 pays et formé des centaines d'élèves qui ne savaient pas lire une seule note.",
-    aboutP2: "Ma méthode combine la technique classique avec le répertoire que vous voulez vraiment jouer : de Chopin à vos chansons préférées. Sans remplissage, sans exercices interminables qui ne mènent nulle part.",
-    aboutBadge: "Concertiste & enseignant",
-    aboutDebut: "Débuts en concert",
-    aboutCountries: "pays avec des cours dispensés",
-    aboutTimeline: [
-      { year: 2010, text: "Premier concert professionnel, Conservatoire National" },
-      { year: 2015, text: "Début des cours particuliers et premières méthodes propres" },
-      { year: 2019, text: "Lancement des cours en ligne — 100 premiers élèves" },
-      { year: 2026, text: "+500 élèves actifs dans 9 pays" },
-    ],
+    /* ── COURSES CAROUSEL ── */
+    coursesCarouselEyebrow: "— Cours disponibles",
+    coursesCarouselTitle: "Apprenez depuis n'importe quelle plateforme",
+    coursesCarouselSub: "Les programmes de piano de Jesús Molina publiés sur les principales plateformes d'apprentissage du monde. Apprenez à votre rythme.",
 
     /* ── METHOD ── */
     methodEyebrow: "— Comment ça fonctionne",
@@ -469,21 +448,18 @@ export const translations = {
       { id: "mentorat-groupe", icon: "people", featured: false, ribbon: null, level: "Tous niveaux", title: "Mentorat en Groupe en Direct", desc: "Cours de groupe hebdomadaires par niveau + communauté privée pour montrer vos progrès.", duration: "Continu", mode: "Groupe", price: 25 },
     ],
 
-    /* ── COMMUNITY ── */
-    communityEyebrow: "— Communauté",
-    communityTitle: "Vous ne jouez pas seul.|Vous jouez en communauté.",
-    communitySub: "Plus de 500 élèves partagent progrès, questions et enregistrements dans notre groupe privé. Chaque semaine, une séance de questions en direct.",
-    communityActiveStudents: "Élèves actifs",
-    communityCountries: "dans 9 pays",
-    testimonials: [
-      { pos: 1, size: "md", avatar: 12, quote: "\"En 3 mois je joue déjà tout le Nocturne.\"", name: "Camila R." },
-      { pos: 2, size: "md", avatar: 33, quote: "\"Cela a changé ma façon d'écouter la musique.\"", name: "Andrés F." },
-      { pos: 3, size: "lg", avatar: 47, quote: "\"Professeur incroyablement didactique.\"", name: "Marcela T." },
-      { pos: 4, size: "md", avatar: 5, quote: "\"Les corrections sont rapides et claires.\"", name: "Diego S." },
-      { pos: 5, size: "lg", avatar: 65, quote: "\"Je n'ai jamais eu l'impression de partir de zéro.\"", name: "Valentina P." },
-      { pos: 6, size: "md", avatar: 21, quote: "\"Une patience que je n'avais jamais vue.\"", name: "Roberto M." },
-      { pos: 7, size: "md", avatar: 58, quote: "\"Je joue maintenant au récital de l'école.\"", name: "Sofía L." },
-    ],
+    /* ── SPOTIFY ── */
+    spotifyEyebrow: "— Spotify",
+    spotifyTitle: "Écoutez Jesús Molina",
+    spotifySub: "Connectez-vous avec les performances de piano les plus vibrantes. Écoutez ses compositions originales, sa fusion de jazz et ses solos de piano sur Spotify.",
+    spotifyMonthlyListeners: "Auditeurs mensuels",
+    spotifyFollowBtn: "Suivre sur Spotify",
+
+    /* ── FEATURED ── */
+    featuredEyebrow: "— En vedette",
+    featuredTitle: "Des moments qui parlent à travers le piano",
+    featuredSub: "Une sélection de pièces, performances et propositions qui montrent la polyvalence de Jesús Molina, de l'énergie de scène à la profondeur de l'improvisation.",
+    featuredCta: "Réserver un cours",
 
     /* ── PRICING ── */
     pricingEyebrow: "— Investissement",
@@ -512,9 +488,9 @@ export const translations = {
     /* ── FOOTER ── */
     footerNav: "Navigation",
     footerNavLinks: [
-      { href: "#sobre-mi", label: "À propos" },
+      { href: "#cursos-disponibles", label: "Cours" },
       { href: "#metodo", label: "Méthode" },
-      { href: "#cursos", label: "Cours" },
+      { href: "#cursos", label: "Programmes" },
       { href: "#planes", label: "Tarifs" },
     ],
     footerCourses: "Cours",
@@ -524,7 +500,16 @@ export const translations = {
       { href: "#cursos", label: "Improvisation & Jazz" },
       { href: "#cursos", label: "Mentorat en Groupe" },
     ],
+    footerIntro: "Piano, composition et présence scénique pour ceux qui veulent apprendre en profondeur et ressentir la musique de manière authentique.",
     footerContact: "Contact",
+    footerChannelWhatsapp: "WhatsApp",
+    footerChannelInstagram: "Instagram",
+    footerChannelYoutube: "YouTube",
+    footerChannelSpotify: "Spotify",
+    footerChannelAppleMusic: "Apple Music",
+    footerScheduleClass: "Réserver un cours",
+    footerExploreCourses: "Explorer les cours",
+    footerListenSpotify: "Écouter sur Spotify",
     footerCopyright: "© 2026 Jesús Molina. Tous droits réservés.",
     footerTagline: "Fait avec soin, note par note.",
 

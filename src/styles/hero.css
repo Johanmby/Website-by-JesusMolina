@@ -68,47 +68,7 @@
   max-width: 900px;
 }
 
-/* ── Eyebrow ── */
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--bronce);
-  padding: 8px 18px;
-  border: 1px solid rgba(201, 162, 39, 0.25);
-  border-radius: 100px;
-  margin-bottom: 28px;
-  background: rgba(201, 162, 39, 0.06);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
 
-  /* Entry animation */
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.dot-pulse {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--bronce);
-  animation: dotPulse 1.8s ease-in-out infinite;
-}
-
-@keyframes dotPulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: .4;
-    transform: scale(.7);
-  }
-}
 
 /* ── Title ── */
 .hero-title {
@@ -325,9 +285,7 @@
 /* ===== ENTRY ANIMATIONS ===== */
 /* All content starts hidden and animates in when hero--visible is added */
 
-.hero--visible .hero-eyebrow {
-  animation: heroFadeUp .9s cubic-bezier(.16, .84, .32, 1) .3s both;
-}
+
 
 .hero--visible .hero-title-line:nth-child(1) {
   animation: heroSlideUp 1s cubic-bezier(.16, .84, .32, 1) .5s both;
