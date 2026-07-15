@@ -14,8 +14,14 @@
 @import './styles/about.css';
 @import './styles/method.css';
 @import './styles/courses.css';
+@import './styles/pricing.css';
 @import './styles/community.css';
 @import './styles/chinafunk.css';
 @import './styles/finalcta.css';
 @import './styles/footer.css';
 @import './styles/reveal.css';
+
+/* New pages styles */
+@import './styles/concerts.css';
+@import './styles/biography.css';
+@import './styles/contact.css';

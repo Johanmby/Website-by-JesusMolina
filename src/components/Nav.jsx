@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useNavScroll } from '../hooks/useNavScroll';
 import { useApp } from '../context/AppContext';
 
@@ -30,16 +31,16 @@ export default function Nav() {
       <header className={navClass} id="nav">
 
         {/* ── Logo ── */}
-        <a href="#inicio" className="nav-logo">
+        <Link to="/#inicio" className="nav-logo">
           <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="Jesús Molina logo" className="nav-logo-img" />
           <span className="nav-logo-text">Jesús Molina</span>
-        </a>
+        </Link>
 
         {/* ── Centro: enlaces de redirección ── */}
         <nav className="nav-links" aria-label="Navegación principal">
-          <a href="" className="nav-link">{t.home}</a>
-          <a href="/concerts" className="nav-link">{t.concerts}</a>
-          <a href="/biography" className="nav-link">{t.biography}</a>
+          <Link to="/" className="nav-link">{t.home}</Link>
+          <Link to="/concerts" className="nav-link">{t.concerts}</Link>
+          <Link to="/biography" className="nav-link">{t.biography}</Link>
 
           {/* Services dropdown */}
           <div
@@ -58,13 +59,13 @@ export default function Nav() {
               </svg>
             </button>
             <div className="nav-dropdown-menu">
-              <a href="/cursos" className="nav-dropdown-item">{t.navCourses}</a>
-              <a href="/masterclass" className="nav-dropdown-item">{t.masterclass}</a>
+              <Link to="/#cursos" className="nav-dropdown-item" onClick={() => setServicesOpen(false)}>{t.navCourses}</Link>
+              <Link to="/#cursos" className="nav-dropdown-item" onClick={() => setServicesOpen(false)}>{t.masterclass}</Link>
             </div>
           </div>
 
-          <a href="/contact" className="nav-link">{t.contact}</a>
-          <a href="/platform" className="nav-link">{t.platform}</a>
+          <Link to="/contact" className="nav-link">{t.contact}</Link>
+          <Link to="/#planes" className="nav-link">{t.platform}</Link>
         </nav>
 
         {/* ── Derecha: controles ── */}
@@ -135,16 +136,16 @@ export default function Nav() {
 
       {/* ── Mobile menu ── */}
       <div className={`mobile-menu${menuOpen ? ' open' : ''}`}>
-        <a href="/" onClick={() => setMenuOpen(false)}>{t.home}</a>
-        <a href="/concerts" onClick={() => setMenuOpen(false)}>{t.concerts}</a>
-        <a href="/biography" onClick={() => setMenuOpen(false)}>{t.biography}</a>
-        <a href="/cursos" onClick={() => setMenuOpen(false)}>{t.navCourses}</a>
-        <a href="/masterclass" onClick={() => setMenuOpen(false)}>{t.masterclass}</a>
-        <a href="/contact" onClick={() => setMenuOpen(false)}>{t.contact}</a>
-        <a href="/platform" onClick={() => setMenuOpen(false)}>{t.platform}</a>
-        <a href="#planes" className="mobile-cta" onClick={() => setMenuOpen(false)}>
+        <Link to="/" onClick={() => setMenuOpen(false)}>{t.home}</Link>
+        <Link to="/concerts" onClick={() => setMenuOpen(false)}>{t.concerts}</Link>
+        <Link to="/biography" onClick={() => setMenuOpen(false)}>{t.biography}</Link>
+        <Link to="/#cursos" onClick={() => setMenuOpen(false)}>{t.navCourses}</Link>
+        <Link to="/#cursos" onClick={() => setMenuOpen(false)}>{t.masterclass}</Link>
+        <Link to="/contact" onClick={() => setMenuOpen(false)}>{t.contact}</Link>
+        <Link to="/#planes" onClick={() => setMenuOpen(false)}>{t.platform}</Link>
+        <Link to="/#planes" className="mobile-cta" onClick={() => setMenuOpen(false)}>
           {t.startNow}
-        </a>
+        </Link>
       </div>
     </>
   );

@@ -1,0 +1,734 @@
+/* ============ CONCERTS — Editorial concert gallery + premium world tour map ============ */
+
+.concerts-page {
+  position: relative;
+  padding: 120px 0 100px;
+  background: var(--ebano);
+  color: var(--marfil);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+[data-theme="light"] .concerts-page {
+  background: linear-gradient(165deg, #F7F1E6 0%, #ECE3D2 45%, #E8DFC8 100%);
+  color: var(--ebano);
+}
+
+.concerts-bg-piano-strings {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(201, 162, 39, 0.015),
+    rgba(201, 162, 39, 0.015) 1px,
+    transparent 1px,
+    transparent 22px
+  );
+  z-index: 1;
+}
+
+.concerts-ambient-glow-1 {
+  position: absolute;
+  top: 5%;
+  left: -15%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.06) 0%, transparent 70%);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.concerts-ambient-glow-2 {
+  position: absolute;
+  bottom: 10%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(92, 26, 40, 0.06) 0%, transparent 70%);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.concerts-container {
+  position: relative;
+  z-index: 2;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Header ── */
+.concerts-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.concerts-header .section-eyebrow {
+  color: var(--bronce);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.concerts-header .section-title {
+  font-size: clamp(38px, 5vw, 64px);
+  margin-bottom: 16px;
+}
+
+.concerts-header .section-title em {
+  color: var(--bronce-soft);
+}
+
+[data-theme="light"] .concerts-header .section-title {
+  color: var(--ebano);
+}
+
+.concerts-subtitle {
+  font-size: 18px;
+  color: var(--niebla-claro);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+[data-theme="light"] .concerts-subtitle {
+  color: var(--niebla);
+}
+
+/* ═══════════════════════════════════════════════════
+   MAP — Premium glassmorphism world tour map
+   ═══════════════════════════════════════════════════ */
+
+.concerts-map-section {
+  margin-bottom: 72px;
+}
+
+.map-card {
+  background: rgba(25, 23, 26, 0.45);
+  border: 1px solid rgba(247, 241, 230, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(247, 241, 230, 0.06);
+  transition: border-color 0.4s var(--ease);
+}
+
+.map-card:hover {
+  border-color: rgba(201, 162, 39, 0.2);
+}
+
+[data-theme="light"] .map-card {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(14, 13, 15, 0.1);
+  box-shadow: 0 20px 60px rgba(14, 13, 15, 0.08);
+}
+
+.map-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 20px;
+}
+
+.map-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.map-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--bronce);
+  background: rgba(201, 162, 39, 0.1);
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  align-self: flex-start;
+}
+
+.map-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--bronce);
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.map-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+[data-theme="light"] .map-title {
+  color: var(--ebano);
+}
+
+.map-desc {
+  font-size: 14px;
+  color: var(--niebla-claro);
+  max-width: 340px;
+  line-height: 1.5;
+  text-align: right;
+}
+
+[data-theme="light"] .map-desc {
+  color: var(--niebla);
+}
+
+.map-canvas-container {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(247, 241, 230, 0.06);
+  background: linear-gradient(135deg, rgba(14, 13, 15, 0.6) 0%, rgba(25, 23, 26, 0.8) 100%);
+}
+
+[data-theme="light"] .map-canvas-container {
+  border-color: rgba(14, 13, 15, 0.08);
+  background: linear-gradient(135deg, #1a1820 0%, #0E0D0F 100%);
+}
+
+.world-map-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Tour path animation */
+.tour-path-line {
+  animation: tour-dash 25s linear infinite;
+}
+
+@keyframes tour-dash {
+  to {
+    stroke-dashoffset: -130;
+  }
+}
+
+/* Marker styles */
+.marker-label {
+  fill: rgba(247, 241, 230, 0.5);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: fill 0.3s var(--ease);
+}
+
+.map-marker-group:hover .marker-label,
+.map-marker-group.active .marker-label {
+  fill: rgba(247, 241, 230, 0.9);
+}
+
+.marker-dot {
+  fill: var(--bronce);
+  transition: r 0.35s var(--ease);
+}
+
+.marker-ring {
+  fill: none;
+  stroke: rgba(201, 162, 39, 0.3);
+  stroke-width: 1;
+  transition: stroke 0.35s var(--ease), r 0.35s var(--ease);
+}
+
+.map-marker-group:hover .marker-dot,
+.map-marker-group.active .marker-dot {
+  r: 6;
+}
+
+.map-marker-group:hover .marker-ring,
+.map-marker-group.active .marker-ring {
+  stroke: rgba(201, 162, 39, 0.6);
+  r: 14;
+}
+
+.marker-ripple {
+  fill: rgba(201, 162, 39, 0.2);
+  transform-origin: center;
+  animation: marker-pulse 3s infinite ease-out;
+  opacity: 0;
+}
+
+.map-marker-group:hover .marker-ripple,
+.map-marker-group.active .marker-ripple {
+  animation: marker-pulse-active 1.5s infinite ease-out;
+}
+
+@keyframes marker-pulse {
+  0% { r: 6; opacity: 0.5; }
+  100% { r: 30; opacity: 0; }
+}
+
+@keyframes marker-pulse-active {
+  0% { r: 8; opacity: 0.7; }
+  100% { r: 36; opacity: 0; }
+}
+
+/* Premium tooltip */
+.map-tooltip {
+  position: absolute;
+  transform: translate(-50%, -140%);
+  background: rgba(14, 13, 15, 0.95);
+  border: 1px solid rgba(201, 162, 39, 0.5);
+  padding: 14px 20px;
+  border-radius: 12px;
+  pointer-events: none;
+  min-width: 170px;
+  z-index: 10;
+  animation: tooltip-fade-in 0.25s var(--ease);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(201, 162, 39, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.tooltip-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.tooltip-year-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--ebano);
+  background: var(--bronce);
+  padding: 3px 8px;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.tooltip-country {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--niebla-claro);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tooltip-city {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--marfil);
+}
+
+@keyframes tooltip-fade-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -125%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -140%);
+  }
+}
+
+/* Map legend */
+.map-legend {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(247, 241, 230, 0.06);
+}
+
+[data-theme="light"] .map-legend {
+  border-top-color: rgba(14, 13, 15, 0.06);
+}
+
+.map-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bronce);
+  box-shadow: 0 0 8px rgba(201, 162, 39, 0.5);
+}
+
+.legend-line {
+  width: 28px;
+  height: 0;
+  border-top: 1.5px dashed var(--bronce);
+  opacity: 0.6;
+}
+
+.legend-text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--niebla-claro);
+  letter-spacing: 0.03em;
+}
+
+[data-theme="light"] .legend-text {
+  color: var(--niebla);
+}
+
+/* ═══════════════════════════════════════════════════
+   GALLERY — Concert cards with embedded YouTube
+   ═══════════════════════════════════════════════════ */
+
+.concerts-gallery-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--linea-clara);
+}
+
+[data-theme="light"] .concerts-gallery-header {
+  border-bottom-color: rgba(14, 13, 15, 0.1);
+}
+
+.gallery-header-content {
+  max-width: 520px;
+}
+
+.gallery-title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+[data-theme="light"] .gallery-title {
+  color: var(--ebano);
+}
+
+.gallery-desc {
+  font-size: 15px;
+  color: var(--niebla-claro);
+  line-height: 1.5;
+}
+
+[data-theme="light"] .gallery-desc {
+  color: var(--niebla);
+}
+
+.gallery-stats {
+  display: flex;
+  gap: 32px;
+  flex-shrink: 0;
+}
+
+.gallery-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--bronce);
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--niebla-claro);
+}
+
+[data-theme="light"] .stat-label {
+  color: var(--niebla);
+}
+
+/* Concert cards grid */
+.concerts-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.concert-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(247, 241, 230, 0.08);
+  background: rgba(25, 23, 26, 0.45);
+  backdrop-filter: blur(10px);
+  transition: transform 0.45s var(--ease), border-color 0.35s var(--ease), box-shadow 0.45s var(--ease);
+}
+
+[data-theme="light"] .concert-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(14, 13, 15, 0.08);
+}
+
+.concert-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201, 162, 39, 0.4);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 30px rgba(201, 162, 39, 0.08);
+}
+
+[data-theme="light"] .concert-card:hover {
+  box-shadow: 0 20px 50px rgba(14, 13, 15, 0.12);
+}
+
+/* Featured first card spans full width */
+.concert-card--featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+}
+
+.concert-card--featured .concert-card-video {
+  aspect-ratio: 16/9;
+}
+
+.concert-card--featured .concert-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 36px 32px;
+  border-left: 1px solid rgba(247, 241, 230, 0.06);
+}
+
+[data-theme="light"] .concert-card--featured .concert-card-body {
+  border-left-color: rgba(14, 13, 15, 0.06);
+}
+
+.concert-card--featured .concert-card-title {
+  font-size: 22px;
+}
+
+/* Video area */
+.concert-card-video {
+  position: relative;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  background: #000;
+}
+
+.concert-card-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.concert-card-poster {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.concert-card-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease), filter 0.4s var(--ease);
+}
+
+.concert-card:hover .concert-card-poster img {
+  transform: scale(1.06);
+}
+
+.poster-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to top, rgba(14, 13, 15, 0.6) 0%, rgba(14, 13, 15, 0.15) 50%, rgba(14, 13, 15, 0.3) 100%);
+  transition: background 0.35s var(--ease);
+}
+
+.concert-card:hover .poster-overlay {
+  background: linear-gradient(to top, rgba(14, 13, 15, 0.7) 0%, rgba(14, 13, 15, 0.2) 50%, rgba(14, 13, 15, 0.35) 100%);
+}
+
+/* Play button */
+.play-btn-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  transition: transform 0.35s var(--ease);
+}
+
+.concert-card:hover .play-btn-wrap {
+  transform: scale(1.1);
+}
+
+.play-btn-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(247, 241, 230, 0.4);
+  background: rgba(14, 13, 15, 0.45);
+  backdrop-filter: blur(8px);
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.concert-card:hover .play-btn-ring {
+  border-color: var(--bronce);
+  background: rgba(201, 162, 39, 0.15);
+}
+
+.play-btn-icon {
+  position: relative;
+  z-index: 2;
+  color: var(--marfil);
+  margin-left: 3px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.concert-card-year {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  background: rgba(14, 13, 15, 0.75);
+  color: var(--bronce-soft);
+  padding: 5px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(247, 241, 230, 0.1);
+  backdrop-filter: blur(6px);
+  letter-spacing: 0.05em;
+}
+
+/* Card body */
+.concert-card-body {
+  padding: 22px 24px;
+}
+
+.concert-card-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.concert-card-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--bronce);
+  box-shadow: 0 0 6px rgba(201, 162, 39, 0.6);
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+.concert-card-location {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--niebla-claro);
+}
+
+[data-theme="light"] .concert-card-location {
+  color: var(--niebla);
+}
+
+.concert-card-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  line-height: 1.25;
+}
+
+[data-theme="light"] .concert-card-title {
+  color: var(--ebano);
+}
+
+.concert-card-venue {
+  font-size: 13px;
+  color: var(--niebla-claro);
+  margin-bottom: 14px;
+}
+
+[data-theme="light"] .concert-card-venue {
+  color: var(--niebla);
+}
+
+.concert-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--bronce);
+  letter-spacing: 0.02em;
+  transition: gap 0.3s var(--ease), color 0.3s var(--ease);
+  text-decoration: none;
+}
+
+.concert-card-cta:hover {
+  gap: 10px;
+  color: var(--bronce-soft);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .concert-card--featured {
+    grid-template-columns: 1fr;
+  }
+  .concert-card--featured .concert-card-body {
+    border-left: none;
+    border-top: 1px solid rgba(247, 241, 230, 0.06);
+    padding: 22px 24px;
+  }
+  .map-header {
+    flex-direction: column;
+  }
+  .map-desc {
+    text-align: left;
+    max-width: none;
+  }
+  .concerts-gallery-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .concerts-page {
+    padding-top: 100px;
+  }
+  .concerts-gallery {
+    grid-template-columns: 1fr;
+  }
+  .gallery-stats {
+    gap: 24px;
+  }
+}

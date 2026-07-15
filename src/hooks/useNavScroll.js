@@ -1,21 +1,31 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+
+const SUB_PAGES = ['/concerts', '/biography', '/contact'];
+const DARK_SECTION_SELECTORS = '.method, .community, .final-cta, .hero, .concerts-page, .biography-page, .contact-page';
 
 /**
- * Tracks whether the page has scrolled past the top (for the nav's
- * "scrolled" compact state) and whether a dark section currently sits
- * behind the nav bar (for the "on-dark" light-text state).
+ * Tracks nav scroll state and contrast mode.
+ * Sub-pages always get a visible nav from the first paint.
  */
 export function useNavScroll() {
   const [scrolled, setScrolled] = useState(false);
   const [onDark, setOnDark] = useState(false);
+  const { pathname } = useLocation();
+  const isSubPage = SUB_PAGES.includes(pathname);
 
   useEffect(() => {
-    const darkSectionEls = document.querySelectorAll('.method, .community, .final-cta');
-
     function update() {
-      setScrolled(window.scrollY > 40);
+      const y = window.scrollY;
+      setScrolled(isSubPage ? y > 8 : y > 40);
+
+      if (isSubPage) {
+        setOnDark(true);
+        return;
+      }
+
       let dark = false;
-      darkSectionEls.forEach((sec) => {
+      document.querySelectorAll(DARK_SECTION_SELECTORS).forEach((sec) => {
         const rect = sec.getBoundingClientRect();
         if (rect.top < 80 && rect.bottom > 80) dark = true;
       });
@@ -24,8 +34,12 @@ export function useNavScroll() {
 
     window.addEventListener('scroll', update, { passive: true });
     update();
-    return () => window.removeEventListener('scroll', update);
-  }, []);
+    const timer = setTimeout(update, 80);
+    return () => {
+      window.removeEventListener('scroll', update);
+      clearTimeout(timer);
+    };
+  }, [pathname, isSubPage]);
 
-  return { scrolled, onDark };
+  return { scrolled: isSubPage || scrolled, onDark: isSubPage || onDark, isSubPage };
 }

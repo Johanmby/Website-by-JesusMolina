@@ -9,8 +9,17 @@
   align-items: center;
   justify-content: space-between;
   padding: 18px 48px;
-  transition: padding .4s var(--ease), background .4s var(--ease), backdrop-filter .4s var(--ease);
+  transition: padding .4s var(--ease), background .4s var(--ease), backdrop-filter .4s var(--ease), color .35s var(--ease);
   gap: 20px;
+  color: var(--ebano);
+}
+
+/* Sub-pages & dark sections: readable nav from first paint */
+.nav.on-dark {
+  color: var(--marfil);
+  background: rgba(14, 13, 15, .72);
+  backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--linea-clara);
 }
 
 .nav.scrolled {
@@ -21,8 +30,7 @@
 }
 
 .nav.scrolled.on-dark {
-  background: rgba(14, 13, 15, .8);
-  border-bottom: 1px solid var(--linea-clara);
+  background: rgba(14, 13, 15, .88);
 }
 
 /* ── Logo ── */
@@ -303,6 +311,34 @@
   font-weight: 700;
 }
 
+/* ── Nav on-dark dropdown/lang overrides ── */
+.nav.on-dark .nav-dropdown-menu,
+.nav.on-dark .nav-lang-menu {
+  background: var(--ebano-soft);
+  border-color: var(--linea-clara);
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, .5);
+}
+
+.nav.on-dark .nav-dropdown-item,
+.nav.on-dark .nav-lang-option {
+  color: var(--marfil);
+}
+
+.nav.on-dark .nav-dropdown-item:hover,
+.nav.on-dark .nav-lang-option:hover {
+  background: rgba(247, 241, 230, .08);
+  color: var(--bronce);
+}
+
+.nav.on-dark .nav-lang-trigger {
+  border-color: var(--linea-clara);
+}
+
+.nav.on-dark .nav-theme-toggle {
+  background: var(--ebano-soft);
+  border-color: var(--linea-clara);
+}
+
 /* ── Burger ── */
 .nav-burger {
   display: none;
@@ -403,30 +439,39 @@
   }
 }
 
-/* ── Dark theme overrides ── */
-[data-theme="dark"] {
-  --marfil: #1A1820;
-  --marfil-osc: #221F2A;
-  --ebano: #F7F1E6;
-  --ebano-soft: #ECE3D2;
-  --linea: rgba(247, 241, 230, 0.12);
-  --linea-clara: rgba(247, 241, 230, 0.08);
-  --niebla: #9E9590;
-  --niebla-claro: #7A746F;
+/* ── Light theme: nav over light home sections ── */
+[data-theme="light"] .nav:not(.on-dark) {
+  color: var(--ebano);
 }
 
+[data-theme="light"] .nav.scrolled:not(.on-dark) {
+  background: rgba(247, 241, 230, .92);
+  border-bottom: 1px solid var(--linea);
+}
+
+/* ── Dark theme: keep ebano/marfil semantic, adjust surfaces ── */
 [data-theme="dark"] body {
-  background: #1A1820;
+  background: #121015;
   color: #F7F1E6;
 }
 
-[data-theme="dark"] .nav.scrolled {
-  background: rgba(20, 18, 26, .88);
+[data-theme="dark"] .nav:not(.on-dark).scrolled {
+  background: rgba(18, 16, 21, .92);
+  border-bottom: 1px solid rgba(247, 241, 230, .1);
+  color: #F7F1E6;
+}
+
+[data-theme="dark"] .nav.on-dark {
+  background: rgba(10, 9, 11, .82);
+}
+
+[data-theme="dark"] .nav.scrolled.on-dark {
+  background: rgba(10, 9, 11, .92);
 }
 
 [data-theme="dark"] .nav-dropdown-menu,
 [data-theme="dark"] .nav-lang-menu {
-  background: #221F2A;
+  background: #1A1820;
   border-color: rgba(247, 241, 230, .12);
 }
 
@@ -438,5 +483,19 @@
 [data-theme="dark"] .nav-dropdown-item:hover,
 [data-theme="dark"] .nav-lang-option:hover {
   background: rgba(247, 241, 230, .08);
+}
+
+[data-theme="dark"] .about,
+[data-theme="dark"] .courses,
+[data-theme="dark"] .pricing,
+[data-theme="dark"] .chinafunk {
+  background: #1A1820;
+  color: #F7F1E6;
+}
+
+[data-theme="dark"] .concerts-page,
+[data-theme="dark"] .biography-page,
+[data-theme="dark"] .contact-page {
+  background: #0A090B;
 }
 

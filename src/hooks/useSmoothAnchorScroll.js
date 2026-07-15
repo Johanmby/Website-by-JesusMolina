@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 /** Smooth-scrolls to in-page #anchors, offsetting for the fixed nav height. */
 export function useSmoothAnchorScroll() {
+  const { pathname } = useLocation();
+
   useEffect(() => {
     const anchors = document.querySelectorAll('a[href^="#"]');
     const onClick = (e) => {
@@ -19,5 +22,5 @@ export function useSmoothAnchorScroll() {
     };
     anchors.forEach((a) => a.addEventListener('click', onClick));
     return () => anchors.forEach((a) => a.removeEventListener('click', onClick));
-  }, []);
+  }, [pathname]);
 }
