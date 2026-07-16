@@ -1,14 +1,9 @@
-import { Fragment, useRef, useEffect } from 'react';
-import { useAnimatedCounters } from '../hooks/useAnimatedCounters';
-import { heroStats } from '../data/heroStats';
+import { useRef, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
 
 export default function Hero() {
   const videoRef = useRef(null);
-  useAnimatedCounters();
   const { t } = useApp();
-
-  const statLabels = [t.heroStat1Label, t.heroStat2Label, t.heroStat3Label];
 
   /* Trigger cinematic entry after loader finishes */
   useEffect(() => {
@@ -95,21 +90,6 @@ export default function Hero() {
             </svg>
             <span>{t.heroCta2}</span>
           </a>
-        </div>
-
-        <div className="hero-stats" data-reveal>
-          {heroStats.map((stat, i) => (
-            <Fragment key={stat.label}>
-              {i > 0 && <div className="hero-stat-divider"></div>}
-              <div className="hero-stat">
-                <div className="hero-stat-row">
-                  <span className="hero-stat-num" data-count={stat.count}>0</span>
-                  <span className="hero-stat-suffix">{stat.suffix}</span>
-                </div>
-                <span className="hero-stat-label">{statLabels[i] || stat.label}</span>
-              </div>
-            </Fragment>
-          ))}
         </div>
       </div>
 

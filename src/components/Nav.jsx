@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useNavScroll } from '../hooks/useNavScroll';
 import { useApp } from '../context/AppContext';
 
-const LANGUAGES = ['es', 'en', 'fr'];
+const LANGUAGES = ['en', 'es', 'fr'];
 
 export default function Nav() {
   const { scrolled, onDark } = useNavScroll();
@@ -73,7 +73,8 @@ export default function Nav() {
           {/* Dark mode toggle */}
           <button
             className={`nav-theme-toggle${darkMode ? ' dark' : ''}`}
-            aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            aria-pressed={darkMode}
+            aria-label={darkMode ? t.switchToLightMode : t.switchToDarkMode}
             onClick={() => setDarkMode((v) => !v)}
           >
             <span className="nav-theme-icon nav-theme-sun">
@@ -98,7 +99,8 @@ export default function Nav() {
             <button
               className="nav-lang-trigger"
               onClick={() => setLangOpen((v) => !v)}
-              aria-label="Cambiar idioma"
+              aria-label={t.changeLanguage}
+              title={t.changeLanguage}
               aria-expanded={langOpen}
             >
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none">

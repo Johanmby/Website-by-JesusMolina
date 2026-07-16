@@ -14,6 +14,9 @@ export const translations = {
     contact: "Contacto",
     platform: "Plataforma",
     startNow: "Empezar ahora",
+    changeLanguage: "Cambiar idioma",
+    switchToLightMode: "Cambiar a modo claro",
+    switchToDarkMode: "Cambiar a modo oscuro",
 
     /* ── HERO ── */
     heroTitle1: "Jesús",
@@ -199,6 +202,9 @@ export const translations = {
     contact: "Contact",
     platform: "Platform",
     startNow: "Start now",
+    changeLanguage: "Change language",
+    switchToLightMode: "Switch to light mode",
+    switchToDarkMode: "Switch to dark mode",
 
     /* ── HERO ── */
     heroTitle1: "Jesús",
@@ -560,12 +566,26 @@ export const translations = {
 };
 
 export function AppProvider({ children }) {
-  const [darkMode, setDarkMode] = useState(false);
-  const [language, setLanguage] = useState("es");
+  const [darkMode, setDarkMode] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.localStorage.getItem("darkMode") === "true";
+  });
+
+  const [language, setLanguage] = useState(() => {
+    if (typeof window === "undefined") return "en";
+    return window.localStorage.getItem("language") || "en";
+  });
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", darkMode ? "dark" : "light");
+    const theme = darkMode ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", theme);
+    document.body.setAttribute("data-theme", theme);
+    window.localStorage.setItem("darkMode", JSON.stringify(darkMode));
   }, [darkMode]);
+
+  useEffect(() => {
+    window.localStorage.setItem("language", language);
+  }, [language]);
 
   const t = translations[language];
 
