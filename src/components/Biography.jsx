@@ -19,7 +19,7 @@ export default function Biography() {
   const { t } = useApp();
   useTiltCards();
 
-  const timeline = t.aboutTimeline ?? [];
+
   // Triplicate for seamless infinite scroll
   const carouselItems = [...COLLABORATORS, ...COLLABORATORS, ...COLLABORATORS];
 
@@ -58,24 +58,6 @@ export default function Biography() {
           </div>
         </div>
 
-        {/* Timeline — premium card */}
-        <div className="bio-story-timeline" data-reveal>
-          <div className="timeline-header">
-            <h3 className="timeline-title">{t.bioTimelineTitle}</h3>
-            <span className="timeline-badge">{timeline.length} hitos</span>
-          </div>
-          <div className="timeline-line">
-            {timeline.map((item, idx) => (
-              <div className={`timeline-item ${idx === timeline.length - 1 ? 'timeline-item--current' : ''}`} key={item.year}>
-                <span className="timeline-year">{item.year}</span>
-                <span className="timeline-dot">
-                  {idx === timeline.length - 1 && <span className="timeline-dot-pulse" />}
-                </span>
-                <p className="timeline-text">{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* Collaborators — infinite scrolling carousel */}
         <div className="bio-collaborators-section" data-reveal>

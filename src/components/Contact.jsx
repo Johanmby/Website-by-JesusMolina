@@ -89,6 +89,12 @@ export default function Contact() {
                 <span className="info-card-label">WhatsApp</span>
                 <span className="info-card-value">+57 300 000 0000</span>
               </div>
+              <span className="info-card-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              <span className="info-card-shimmer" aria-hidden="true" />
             </a>
 
             <a href="mailto:info@jesusmolinapiano.com" className="info-card">
@@ -102,6 +108,12 @@ export default function Contact() {
                 <span className="info-card-label">Email</span>
                 <span className="info-card-value">info@jesusmolinapiano.com</span>
               </div>
+              <span className="info-card-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              <span className="info-card-shimmer" aria-hidden="true" />
             </a>
 
             <div className="info-card static-card">
@@ -149,10 +161,10 @@ export default function Contact() {
                   <div className="field-border-line" />
                 </div>
 
-                {/* ── Modern Subject Picker — Premium glass cards ── */}
+                {/* ── Subject Picker — Elegant Chips ── */}
                 <div className="form-subject-picker">
                   <span className="subject-picker-label">{t.contactFormSubject}</span>
-                  <div className="subject-options-modern" role="radiogroup" aria-label={t.contactFormSubject}>
+                  <div className="subject-chips-row" role="radiogroup" aria-label={t.contactFormSubject}>
                     {SUBJECT_OPTIONS.map((opt) => {
                       const isSelected = form.subject === opt.value;
                       return (
@@ -161,20 +173,14 @@ export default function Contact() {
                           type="button"
                           role="radio"
                           aria-checked={isSelected}
-                          className={`subject-card ${isSelected ? 'selected' : ''}`}
+                          className={`subject-chip ${isSelected ? 'selected' : ''}`}
                           onClick={() => handleInputChange('subject', opt.value)}
                           style={{ '--subject-accent': opt.color }}
                         >
-                          <div className="subject-card-icon-wrap">
+                          <span className="subject-chip-icon">
                             <SubjectIcon type={opt.icon} isSelected={isSelected} />
-                            {isSelected && <span className="subject-card-check">
-                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                                <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                              </svg>
-                            </span>}
-                          </div>
-                          <span className="subject-card-text">{t[opt.labelKey]}</span>
-                          {isSelected && <span className="subject-card-glow" aria-hidden="true" />}
+                          </span>
+                          <span className="subject-chip-text">{t[opt.labelKey]}</span>
                         </button>
                       );
                     })}

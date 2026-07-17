@@ -1,13 +1,24 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import Globe from 'react-globe.gl';
 import { useApp } from '../context/AppContext';
-import { CONCERTS, TOUR_MARKERS } from '../data/concerts';
+import { CONCERTS, GLOBE_LOCATIONS, GLOBE_ARCS } from '../data/concerts';
 
 export default function Concerts() {
   const { t } = useApp();
   const [hoveredMarker, setHoveredMarker] = useState(null);
   const [playingId, setPlayingId] = useState(null);
+  const globeEl = useRef();
 
-  const activeMarker = TOUR_MARKERS.find((m) => m.id === hoveredMarker);
+  useEffect(() => {
+    if (globeEl.current) {
+      const controls = globeEl.current.controls();
+      controls.autoRotate = false;
+      controls.enableZoom = false;
+    }
+  }, []);
+
+  const activeMarker = null; // No longer needed for globe since it has native labels if needed, or we can use custom markers.
+
 
   return (
     <section className="concerts-page">
@@ -39,111 +50,74 @@ export default function Concerts() {
             </div>
 
             <div className="map-canvas-container">
-              <svg
-                className="world-map-svg"
-                viewBox="0 0 1000 500"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
+              <div 
+                className="globe-wrapper" 
+                style={{ width: '100%', height: '100%', cursor: 'grab' }}
+                onMouseEnter={() => setHoveredMarker('globe')}
+                onMouseLeave={() => setHoveredMarker(null)}
               >
-                <defs>
-                  <radialGradient id="mapGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="rgba(201,162,39,0.12)" />
-                    <stop offset="100%" stopColor="rgba(14,13,15,0)" />
-                  </radialGradient>
-                  <linearGradient id="tourPath" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="rgba(201,162,39,0.08)" />
-                    <stop offset="50%" stopColor="rgba(201,162,39,0.55)" />
-                    <stop offset="100%" stopColor="rgba(201,162,39,0.08)" />
-                  </linearGradient>
-                  <filter id="markerGlow">
-                    <feGaussianBlur stdDeviation="3" result="blur" />
-                    <feMerge>
-                      <feMergeNode in="blur" />
-                      <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                  </filter>
-                </defs>
+                <Globe
+                  ref={globeEl}
+                  width={1000}
+                  height={700}
+                  backgroundColor="rgba(0,0,0,0)"
+                  globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
+                  atmosphereColor="#C9A227"
+                  atmosphereAltitude={0.15}
+                  
+                  // Rings for cities
+                  ringsData={GLOBE_LOCATIONS}
+                  ringLat="lat"
+                  ringLng="lng"
+                  ringColor="color"
+                  ringMaxRadius={2}
+                  ringPropagationSpeed={2.5}
+                  ringRepeatPeriod={800}
 
-                <rect width="1000" height="500" fill="url(#mapGlow)" rx="18" />
+                  // Points/Dots — larger radius = bigger hitbox
+                  pointsData={GLOBE_LOCATIONS}
+                  pointLat="lat"
+                  pointLng="lng"
+                  pointColor={() => '#C9A227'}
+                  pointAltitude={0.01}
+                  pointRadius={0.8}
+                  
+                  // Premium HTML Tooltip on hover
+                  pointLabel={(d) => `
+                    <div class="globe-tooltip" style="pointer-events:none;">
+                      <div class="tooltip-header">
+                        <span class="tooltip-city">${d.city}</span>, <span class="tooltip-country">${d.country}</span>
+                      </div>
+                      <div class="tooltip-details">
+                        <span class="tooltip-date">${d.date}</span>
+                        <span class="tooltip-venue">${d.venue}</span>
+                      </div>
+                    </div>
+                  `}
 
-                {/* Refined continent shapes */}
-                <g className="map-continents" opacity="0.25">
-                  {/* North America */}
-                  <path d="M80 100 Q120 80 180 90 Q220 85 260 100 Q280 110 270 140 Q260 170 250 190 Q230 210 200 230 Q180 250 160 260 Q140 240 130 220 Q110 200 100 170 Q90 140 80 120Z" stroke="rgba(247,241,230,0.15)" strokeWidth="1" fill="rgba(247,241,230,0.03)" />
-                  {/* South America */}
-                  <path d="M240 280 Q260 270 280 280 Q300 290 310 320 Q315 350 300 380 Q285 410 270 420 Q255 410 250 390 Q240 360 235 330 Q232 300 240 280Z" stroke="rgba(247,241,230,0.15)" strokeWidth="1" fill="rgba(247,241,230,0.03)" />
-                  {/* Europe */}
-                  <path d="M440 80 Q460 75 490 85 Q520 90 540 100 Q550 115 540 130 Q530 145 510 150 Q490 148 470 140 Q455 130 445 115 Q440 100 440 80Z" stroke="rgba(247,241,230,0.15)" strokeWidth="1" fill="rgba(247,241,230,0.03)" />
-                  {/* Africa */}
-                  <path d="M470 170 Q490 160 520 170 Q540 185 550 210 Q560 250 555 290 Q545 330 530 350 Q510 360 490 340 Q475 310 468 270 Q462 230 465 200Z" stroke="rgba(247,241,230,0.12)" strokeWidth="1" fill="rgba(247,241,230,0.02)" />
-                  {/* Asia */}
-                  <path d="M580 70 Q640 60 720 80 Q780 95 830 120 Q870 140 880 170 Q875 200 850 220 Q820 235 780 230 Q740 225 700 210 Q660 195 630 175 Q600 155 585 130 Q575 100 580 70Z" stroke="rgba(247,241,230,0.12)" strokeWidth="1" fill="rgba(247,241,230,0.02)" />
-                  {/* Australia */}
-                  <path d="M800 320 Q840 310 870 325 Q890 340 885 365 Q875 385 850 390 Q825 388 810 375 Q795 355 800 320Z" stroke="rgba(247,241,230,0.1)" strokeWidth="1" fill="rgba(247,241,230,0.02)" />
-                </g>
-
-                {/* Subtle grid lines */}
-                {[200, 400, 600, 800].map((x) => (
-                  <line key={`v${x}`} x1={x} y1="0" x2={x} y2="500" stroke="rgba(247,241,230,0.04)" strokeWidth="0.5" strokeDasharray="4 8" />
-                ))}
-                {[125, 250, 375].map((y) => (
-                  <line key={`h${y}`} x1="0" y1={y} x2="1000" y2={y} stroke="rgba(247,241,230,0.04)" strokeWidth="0.5" strokeDasharray="4 8" />
-                ))}
-
-                {/* Tour route — animated dashed path */}
-                <path
-                  className="tour-path-line"
-                  d="M 280 320 C 278 312 276 308 275 305 C 260 270 220 230 170 200 C 200 195 230 192 260 190 C 350 195 420 198 470 200 C 478 185 488 175 495 170 C 490 160 485 155 480 150 C 580 160 700 185 820 210"
-                  stroke="url(#tourPath)"
-                  strokeWidth="1.5"
-                  strokeDasharray="8 5"
-                  fill="none"
+                  // Arcs (airline routes)
+                  arcsData={GLOBE_ARCS}
+                  arcStartLat="startLat"
+                  arcStartLng="startLng"
+                  arcEndLat="endLat"
+                  arcEndLng="endLng"
+                  arcColor="color"
+                  arcDashLength={0.4}
+                  arcDashGap={4}
+                  arcDashInitialGap={() => Math.random() * 5}
+                  arcDashAnimateTime={2000}
+                  arcAltitudeAutoScale={0.3}
                 />
+              </div>
 
-                {/* Tour markers */}
-                {TOUR_MARKERS.map((marker) => (
-                  <g
-                    key={marker.id}
-                    className={`map-marker-group ${hoveredMarker === marker.id ? 'active' : ''}`}
-                    onMouseEnter={() => setHoveredMarker(marker.id)}
-                    onMouseLeave={() => setHoveredMarker(null)}
-                    style={{ cursor: 'pointer' }}
-                    filter={hoveredMarker === marker.id ? 'url(#markerGlow)' : undefined}
-                  >
-                    <circle cx={marker.x} cy={marker.y} r="18" className="marker-ripple" />
-                    <circle cx={marker.x} cy={marker.y} r="10" className="marker-ring" />
-                    <circle cx={marker.x} cy={marker.y} r="4.5" className="marker-dot" />
-                    <text x={marker.x} y={marker.y + 24} textAnchor="middle" className="marker-label">
-                      {marker.city}
-                    </text>
-                  </g>
-                ))}
-              </svg>
 
-              {/* Premium tooltip */}
-              {activeMarker && (
-                <div
-                  className="map-tooltip"
-                  style={{
-                    left: `${(activeMarker.x / 1000) * 100}%`,
-                    top: `${(activeMarker.y / 500) * 100}%`,
-                  }}
-                >
-                  <div className="tooltip-header">
-                    <span className="tooltip-year-badge">{activeMarker.year}</span>
-                    <span className="tooltip-country">{activeMarker.country}</span>
-                  </div>
-                  <div className="tooltip-city">{activeMarker.city}</div>
-                </div>
-              )}
             </div>
 
             {/* Map legend */}
             <div className="map-legend">
               <div className="map-legend-item">
                 <span className="legend-dot" />
-                <span className="legend-text">{TOUR_MARKERS.length} ciudades</span>
+                <span className="legend-text">+60 países visitados</span>
               </div>
               <div className="map-legend-item">
                 <span className="legend-line" />

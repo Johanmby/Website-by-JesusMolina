@@ -15,8 +15,6 @@ export const translations = {
     platform: "Plataforma",
     startNow: "Empezar ahora",
     changeLanguage: "Cambiar idioma",
-    switchToLightMode: "Cambiar a modo claro",
-    switchToDarkMode: "Cambiar a modo oscuro",
 
     /* ── HERO ── */
     heroTitle1: "Jesús",
@@ -203,8 +201,6 @@ export const translations = {
     platform: "Platform",
     startNow: "Start now",
     changeLanguage: "Change language",
-    switchToLightMode: "Switch to light mode",
-    switchToDarkMode: "Switch to dark mode",
 
     /* ── HERO ── */
     heroTitle1: "Jesús",
@@ -566,22 +562,15 @@ export const translations = {
 };
 
 export function AppProvider({ children }) {
-  const [darkMode, setDarkMode] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return window.localStorage.getItem("darkMode") === "true";
-  });
-
   const [language, setLanguage] = useState(() => {
     if (typeof window === "undefined") return "en";
     return window.localStorage.getItem("language") || "en";
   });
 
   useEffect(() => {
-    const theme = darkMode ? "dark" : "light";
-    document.documentElement.setAttribute("data-theme", theme);
-    document.body.setAttribute("data-theme", theme);
-    window.localStorage.setItem("darkMode", JSON.stringify(darkMode));
-  }, [darkMode]);
+    document.documentElement.setAttribute("data-theme", "light");
+    document.body.setAttribute("data-theme", "light");
+  }, []);
 
   useEffect(() => {
     window.localStorage.setItem("language", language);
@@ -590,7 +579,7 @@ export function AppProvider({ children }) {
   const t = translations[language];
 
   return (
-    <AppContext.Provider value={{ darkMode, setDarkMode, language, setLanguage, t }}>
+    <AppContext.Provider value={{ language, setLanguage, t }}>
       {children}
     </AppContext.Provider>
   );

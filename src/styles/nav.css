@@ -169,69 +169,6 @@
   flex-shrink: 0;
 }
 
-/* Dark mode toggle pill */
-.nav-theme-toggle {
-  position: relative;
-  width: 52px;
-  height: 28px;
-  border-radius: 100px;
-  border: 1.5px solid var(--linea);
-  background: var(--marfil-osc);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  padding: 0 4px;
-  transition: background .35s, border-color .35s;
-  gap: 0;
-}
-
-.nav-theme-toggle.dark {
-  background: var(--ebano-soft);
-  border-color: var(--linea-clara);
-}
-
-.nav-theme-icon {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity .3s, transform .3s;
-  color: var(--niebla);
-}
-
-.nav-theme-sun {
-  left: 6px;
-  opacity: 1;
-}
-
-.nav-theme-moon {
-  right: 6px;
-  opacity: 0;
-  color: var(--niebla-claro);
-}
-
-.nav-theme-toggle.dark .nav-theme-sun {
-  opacity: 0;
-}
-
-.nav-theme-toggle.dark .nav-theme-moon {
-  opacity: 1;
-}
-
-.nav-theme-thumb {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--bronce);
-  left: 3px;
-  transition: transform .35s var(--ease);
-  box-shadow: 0 2px 8px rgba(201, 162, 39, .35);
-}
-
-.nav-theme-toggle.dark .nav-theme-thumb {
-  transform: translateX(24px);
-}
 
 /* Language selector */
 .nav-lang {
@@ -330,14 +267,7 @@
   color: var(--bronce);
 }
 
-.nav.on-dark .nav-lang-trigger {
-  border-color: var(--linea-clara);
-}
 
-.nav.on-dark .nav-theme-toggle {
-  background: var(--ebano-soft);
-  border-color: var(--linea-clara);
-}
 
 /* ── Burger ── */
 .nav-burger {
@@ -447,55 +377,5 @@
 [data-theme="light"] .nav.scrolled:not(.on-dark) {
   background: rgba(247, 241, 230, .92);
   border-bottom: 1px solid var(--linea);
-}
-
-/* ── Dark theme: keep ebano/marfil semantic, adjust surfaces ── */
-[data-theme="dark"] body {
-  background: #121015;
-  color: #F7F1E6;
-}
-
-[data-theme="dark"] .nav:not(.on-dark).scrolled {
-  background: rgba(18, 16, 21, .92);
-  border-bottom: 1px solid rgba(247, 241, 230, .1);
-  color: #F7F1E6;
-}
-
-[data-theme="dark"] .nav.on-dark {
-  background: rgba(10, 9, 11, .82);
-}
-
-[data-theme="dark"] .nav.scrolled.on-dark {
-  background: rgba(10, 9, 11, .92);
-}
-
-[data-theme="dark"] .nav-dropdown-menu,
-[data-theme="dark"] .nav-lang-menu {
-  background: #1A1820;
-  border-color: rgba(247, 241, 230, .12);
-}
-
-[data-theme="dark"] .nav-dropdown-item,
-[data-theme="dark"] .nav-lang-option {
-  color: #F7F1E6;
-}
-
-[data-theme="dark"] .nav-dropdown-item:hover,
-[data-theme="dark"] .nav-lang-option:hover {
-  background: rgba(247, 241, 230, .08);
-}
-
-[data-theme="dark"] .about,
-[data-theme="dark"] .courses,
-[data-theme="dark"] .pricing,
-[data-theme="dark"] .chinafunk {
-  background: #1A1820;
-  color: #F7F1E6;
-}
-
-[data-theme="dark"] .concerts-page,
-[data-theme="dark"] .biography-page,
-[data-theme="dark"] .contact-page {
-  background: #0A090B;
 }
 
