@@ -15,6 +15,10 @@ export const translations = {
     platform: "Plataforma",
     startNow: "Empezar ahora",
     changeLanguage: "Cambiar idioma",
+    platformsTitle: "Plataformas",
+    platformsSubtitle: "Elige tu plataforma",
+    platformsPlay: "Play",
+    platformsDownload: "Descargar",
 
     /* ── HERO ── */
     heroTitle1: "Jesús",
@@ -201,6 +205,10 @@ export const translations = {
     platform: "Platform",
     startNow: "Start now",
     changeLanguage: "Change language",
+    platformsTitle: "Platforms",
+    platformsSubtitle: "Choose your platform",
+    platformsPlay: "Play",
+    platformsDownload: "Download",
 
     /* ── HERO ── */
     heroTitle1: "Jesús",
@@ -386,6 +394,11 @@ export const translations = {
     contact: "Contact",
     platform: "Plateforme",
     startNow: "Commencer",
+    changeLanguage: "Changer de langue",
+    platformsTitle: "Plateformes",
+    platformsSubtitle: "Choisissez votre plateforme",
+    platformsPlay: "Play",
+    platformsDownload: "Télécharger",
 
     /* ── HERO ── */
     heroTitle1: "Jesús",

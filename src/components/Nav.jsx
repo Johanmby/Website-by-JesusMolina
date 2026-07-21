@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavScroll } from '../hooks/useNavScroll';
 import { useApp } from '../context/AppContext';
+import PlatformsModal from './PlatformsModal';
+import { defaultTrackData } from '../data/platforms';
 
 const LANGUAGES = ['en', 'es', 'fr'];
 
@@ -10,6 +12,7 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [platformsOpen, setPlatformsOpen] = useState(false);
   const { language, setLanguage, t } = useApp();
   const servicesRef = useRef(null);
   const langRef = useRef(null);
@@ -65,7 +68,7 @@ export default function Nav() {
           </div>
 
           <Link to="/contact" className="nav-link">{t.contact}</Link>
-          <Link to="/#planes" className="nav-link">{t.platform}</Link>
+          <button className="nav-link" onClick={() => setPlatformsOpen(true)}>{t.platformsTitle || t.platform}</button>
         </nav>
 
         {/* ── Derecha: controles ── */}
@@ -123,11 +126,17 @@ export default function Nav() {
         <Link to="/#cursos" onClick={() => setMenuOpen(false)}>{t.navCourses}</Link>
         <Link to="/#cursos" onClick={() => setMenuOpen(false)}>{t.masterclass}</Link>
         <Link to="/contact" onClick={() => setMenuOpen(false)}>{t.contact}</Link>
-        <Link to="/#planes" onClick={() => setMenuOpen(false)}>{t.platform}</Link>
+        <button className="nav-link" style={{ fontSize: 'inherit' }} onClick={() => { setPlatformsOpen(true); setMenuOpen(false); }}>{t.platformsTitle || t.platform}</button>
         <Link to="/#planes" className="mobile-cta" onClick={() => setMenuOpen(false)}>
           {t.startNow}
         </Link>
       </div>
+
+      <PlatformsModal 
+        isOpen={platformsOpen} 
+        onClose={() => setPlatformsOpen(false)} 
+        {...defaultTrackData}
+      />
     </>
   );
 }
